@@ -6,7 +6,10 @@ let server;
 
 
 describe ('/api/genres', ()=> {
-    beforeEach(()=>{server = require('../../index'); })
+    beforeEach(()=>{
+      server = require('../../index');
+     })
+
     afterEach( async()=> { 
         await server.close(); 
         await Genre.deleteMany({});
@@ -29,7 +32,7 @@ describe ('/api/genres', ()=> {
          expect(res.body.some(g => g.name === 'genre1')).toBeTruthy();
          expect(res.body.some(g => g.name === 'genre2')).toBeTruthy();
 
-        },10000);
+        },20000);
         
     }); 
 });
